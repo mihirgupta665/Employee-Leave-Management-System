@@ -110,14 +110,6 @@ Default API URL:
 - `PATCH /api/users/:id/role` (admin)
 - `DELETE /api/users/:id` (admin)
 
-## Required Screenshots for Submission
-
-Add these images in your GitHub README:
-- Login page
-- Employee dashboard
-- Manager approval dashboard
-- Admin panel
-
 ## Deployment Guide
 
 Deploy backend and frontend separately for best reliability.
