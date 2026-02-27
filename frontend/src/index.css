@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #eef4ff;
+  --bg-soft: #e6fff7;
+  --text: #0b1220;
+  --muted: #54607a;
+  --primary: #0ea5a0;
+  --primary-dark: #0b827e;
+  --accent: #1d4ed8;
+  --danger: #dc2626;
+  --surface: rgba(255, 255, 255, 0.88);
+  --border: rgba(148, 163, 184, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 8% 8%, #d8fff0 0%, transparent 35%),
+    radial-gradient(circle at 92% 18%, #dbeafe 0%, transparent 34%),
+    linear-gradient(145deg, var(--bg) 0%, var(--bg-soft) 100%);
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Outfit", "Segoe UI", sans-serif;
+}
+
+@layer components {
+  .auth-bg-page {
+    @apply relative flex min-h-screen items-center justify-center overflow-hidden p-4 sm:p-6 lg:p-8;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .auth-bg-page::before {
+    content: "";
+    @apply absolute inset-0;
+    background:
+      radial-gradient(circle at 85% 85%, rgba(20, 184, 166, 0.26), transparent 42%),
+      linear-gradient(130deg, rgba(15, 23, 42, 0.74), rgba(30, 64, 175, 0.42));
+  }
+
+  .auth-overlay-card {
+    @apply relative z-10 grid w-full max-w-6xl overflow-hidden rounded-[30px] border border-white/30 bg-white/20 shadow-2xl backdrop-blur-xl lg:grid-cols-[1.1fr_0.9fr];
+    min-height: 640px;
+    animation: riseIn 0.8s ease;
+  }
+
+  .auth-copy {
+    @apply hidden flex-col justify-center bg-gradient-to-b from-slate-900/30 via-slate-900/10 to-transparent p-10 text-white lg:flex;
+  }
+
+  .auth-copy h2 {
+    @apply mb-3 text-4xl font-extrabold leading-tight xl:text-5xl;
+    color: #d4af37;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  .auth-copy p {
+    @apply max-w-lg text-base text-slate-100/90;
+  }
+
+  .auth-form-pane {
+    @apply flex items-center bg-[#f2e6d8] p-6 backdrop-blur-md sm:p-8 lg:p-10;
+  }
+
+  .auth-form-inner {
+    @apply mx-auto w-full max-w-md space-y-4 rounded-3xl border border-[#e6d3bc] bg-[#fbf5ed] p-6 shadow-xl;
+  }
+
+  .page-shell {
+    @apply min-h-screen p-3 sm:p-5 lg:p-7;
+  }
+
+  .auth-shell {
+    @apply relative mx-auto flex w-full max-w-6xl overflow-hidden rounded-3xl border border-white/60 bg-white/70 shadow-2xl backdrop-blur-xl;
+    animation: riseIn 0.75s ease;
+  }
+
+  .auth-visual {
+    @apply hidden w-1/2 bg-gradient-to-br from-cyan-600 via-teal-500 to-blue-700 p-10 text-white lg:block;
+  }
+
+  .auth-form {
+    @apply w-full space-y-4 p-6 sm:p-8 lg:w-1/2 lg:p-10;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-slate-200/70 bg-white/75 shadow-lg backdrop-blur-lg;
+    animation: riseIn 0.45s ease;
+  }
+
+  .table-wrap {
+    @apply overflow-x-auto rounded-xl border border-slate-200/70;
+  }
+
+  .data-table {
+    @apply min-w-full text-sm;
+  }
+
+  .data-table thead {
+    @apply bg-slate-900 text-slate-100;
+  }
+
+  .data-table th {
+    @apply px-4 py-3 text-left font-semibold tracking-wide;
+  }
+
+  .data-table td {
+    @apply px-4 py-3;
+  }
+
+  .data-table tbody tr {
+    @apply border-b border-slate-200/70 transition-colors duration-200 hover:bg-cyan-50/60;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-slate-300/80 bg-white/95 px-4 py-3 text-slate-800 outline-none ring-0 transition-all duration-200 placeholder:text-slate-400 focus:border-sky-500 focus:shadow-lg;
+  }
+
+  .btn-primary {
+    @apply rounded-xl bg-gradient-to-r from-teal-600 via-sky-600 to-blue-600 px-4 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:from-teal-500 hover:via-sky-500 hover:to-blue-500 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70;
+  }
+
+  .auth-link {
+    @apply font-semibold text-sky-700 transition-colors duration-200 hover:text-blue-600;
+  }
+
+  .btn-danger {
+    @apply rounded-xl bg-gradient-to-r from-rose-600 to-red-500 px-3 py-2 font-semibold text-white shadow transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md;
+  }
+}
+
+@keyframes riseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(14, 165, 160, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(14, 165, 160, 0);
+  }
+}
+
+.pulse-soft {
+  animation: pulseSoft 1.8s infinite;
+}
