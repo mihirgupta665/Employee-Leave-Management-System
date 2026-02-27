@@ -2,6 +2,12 @@
 
 Full-stack MERN project implementing employee leave requests, manager approvals, and admin user/role management.
 
+## Live Demo
+
+- Frontend (Vercel): https://employee-leave-management-system-fr.vercel.app/
+- Backend API (Render): https://employee-leave-management-system-backend-4s8y.onrender.com/
+- Health Check: https://employee-leave-management-system-backend-4s8y.onrender.com/api/health
+
 ## Tech Stack
 
 - Frontend: React + Tailwind CSS
@@ -122,7 +128,7 @@ Deploy backend and frontend separately for best reliability.
 2. Set build command: `npm install`
 3. Set start command: `npm start`
 4. Add environment variables:
-   - `PORT=5000` (or leave default from platform)
+   - `PORT` is auto-provided by Render (do not hardcode in Render env)
    - `MONGO_URI=<your mongo connection string>`
    - `JWT_SECRET=<strong random secret>`
    - `JWT_EXPIRES_IN=1d`
